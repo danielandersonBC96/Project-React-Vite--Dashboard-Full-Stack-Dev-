@@ -5,6 +5,7 @@ import CssBaseline from '@mui/material/CssBaseline';
 import { Box } from "@mui/material"
 import { BrowserRouter, Route , Routes } from 'react-router-dom';
 import Navbar from '@/Pages/navbar'
+import Dashboard from './Pages/Dashboard';
 
 function App() {
 
@@ -21,7 +22,7 @@ function App() {
          >
           <Navbar/>
             <Routes >
-               <Route path='/' element={<div> Dashboard Page</div>}/>
+               <Route path='/' element={<Dashboard/>}/>
                <Route path='/predictions' element={ <div> Prediction Page</div>}/>
             </Routes>
          </Box>

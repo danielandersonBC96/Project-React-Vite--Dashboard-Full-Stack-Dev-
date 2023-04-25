@@ -31,8 +31,10 @@ const Navbar = ( props: Props) => {
                     variant='h4'
                     fontSize={'16px'}
                     >
-                         Finanseer 
+                       <h1> Dashboard Finanseer </h1>
                     </Typography>
+
+                   
                 </FlexBetween>
 
                 {/* RIGHT SIDE */}
@@ -63,7 +65,7 @@ const Navbar = ( props: Props) => {
                             textDecoration: 'inherit'
                         }}
                         >
-                           Dashboard
+                           Predictions 
                         </Link>
                     </Box>
 
