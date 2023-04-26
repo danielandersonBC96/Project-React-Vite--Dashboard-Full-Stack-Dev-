@@ -33,9 +33,12 @@ const Navbar = ( props: Props) => {
                     >
                        <h1> Dashboard Finanseer </h1>
                     </Typography>
-
+                     
+                     
                    
                 </FlexBetween>
+
+              
 
                 {/* RIGHT SIDE */}
 

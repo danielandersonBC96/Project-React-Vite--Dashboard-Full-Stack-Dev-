@@ -1,9 +1,8 @@
 import DashboardBox from '@/Components/DashboardBox';
 import { Box , useMediaQuery } from '@mui/material';
 
- 
-
 const gridTemplateLargeScreens = `
+
    " a b c "
    " a b c "
    " a b c " 
@@ -74,19 +73,17 @@ const Dashboard = () => {
              }
        }
      >
+
       <DashboardBox gridArea='a'></DashboardBox>
       <DashboardBox gridArea='b'></DashboardBox>
       <DashboardBox gridArea='c'></DashboardBox>
       <DashboardBox gridArea='d'></DashboardBox>
       <DashboardBox gridArea='e'></DashboardBox>
-      <DashboardBox gridArea='f'> </DashboardBox>
+      <DashboardBox gridArea='f'></DashboardBox>
       <DashboardBox gridArea='g'></DashboardBox>
-      <DashboardBox gridArea='h'> </DashboardBox>
+      <DashboardBox gridArea='h'></DashboardBox>
       <DashboardBox gridArea='i'></DashboardBox>
       <DashboardBox gridArea='j'></DashboardBox>
-      <DashboardBox></DashboardBox>
-
-   
    
      </Box>
    );

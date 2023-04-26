@@ -22,7 +22,7 @@ function App() {
          >
           <Navbar/>
             <Routes >
-               <Route path='/' element={<Dashboard/>}/>
+               <Route path='/' element={ <Dashboard/>}/>
                <Route path='/predictions' element={ <div> Prediction Page</div>}/>
             </Routes>
          </Box>
