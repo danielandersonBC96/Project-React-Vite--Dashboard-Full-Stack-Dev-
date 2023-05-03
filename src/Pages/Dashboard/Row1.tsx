@@ -12,6 +12,7 @@ Area
 } from 'recharts';
 import{ useMemo } from 'react';
 import {useTheme} from '@mui/material';
+import BoxHeader from '@/Components/BoxHeader';
 
 
 
@@ -41,6 +42,13 @@ const Row1 = () => {
 
        <>
            <DashboardBox  gridArea='a'>
+              <BoxHeader
+              title='Revenue and Expenses'
+              subtitle='Top line represents revenue, bottom line represents expenses'
+              sidText='+4%'
+
+                />
+             
              <ResponsiveContainer width={"100%"} height={"100%"}>
                 <AreaChart
                 width={500}

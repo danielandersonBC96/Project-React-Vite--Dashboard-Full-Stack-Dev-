@@ -25,32 +25,28 @@ const BoxHeader = (  { icon, title, subtitle, sidText}: Props) => {
         >
             <FlexBetween>
                 {icon}
-                  <Box
-                   width={"100%"}
-                   >
-                     <Typography
-                     variant='h4'
-                     mb={"-0.1rem"}
-                     >
-                          {title}
-
-                     </Typography>
+                <Box>
                     <Typography
-                   variant='h6'
-                   >
-                        {subtitle}
-                    </Typography>
-                    <Typography
-                    variant='h5'
-                    fontWeight={"700"}
-                    color={palette.secondary[500]}
+                    variant='h4'
+                    mb="-0.1re,"
                     >
-                        {sidText}
+                        {title}
                     </Typography>
-
-                   </Box>
-
+                    <Typography
+                    variant='h6'
+                    >
+                      {subtitle}
+                    </Typography>
+                </Box>
             </FlexBetween>
+
+            <Typography
+            variant='h5'
+            fontWeight= "700"
+            color= { palette.secondary[500]}
+            >
+                {sidText}
+            </Typography>
         </FlexBetween>
     )
 }
