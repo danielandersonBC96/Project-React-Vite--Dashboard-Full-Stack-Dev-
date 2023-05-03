@@ -8,11 +8,13 @@ import {
 type Props = {
  
     icon?: React.ReactNode;
-    title: string
+    title: string;
+    subtitle: string;
+    sidText: string ;
 }
 
 
-const BoxHeader = (  { icon, title}: Props) => {
+const BoxHeader = (  { icon, title, subtitle, sidText}: Props) => {
     
     const { palette} =  useTheme()
 
@@ -33,6 +35,18 @@ const BoxHeader = (  { icon, title}: Props) => {
                           {title}
 
                      </Typography>
+                    <Typography
+                   variant='h6'
+                   >
+                        {subtitle}
+                    </Typography>
+                    <Typography
+                    variant='h5'
+                    fontWeight={"700"}
+                    color={palette.secondary[500]}
+                    >
+                        {sidText}
+                    </Typography>
 
                    </Box>
 
