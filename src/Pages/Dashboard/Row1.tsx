@@ -48,10 +48,10 @@ const Row1 = () => {
                 data={revenueExpenses}
                 margin={
                     {
-                        top:10,
-                        right:30,
-                        left:0,
-                        bottom:0,
+                        top:15,
+                        right:25,
+                        left:-10,
+                        bottom:60,
                     }
                 }
                 >
