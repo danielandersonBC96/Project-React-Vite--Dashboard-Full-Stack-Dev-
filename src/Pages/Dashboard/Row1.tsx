@@ -58,6 +58,23 @@ const Row1 = () => {
         )
     }, [data])
 
+     
+    const Revenue = useMemo(() => {
+        return (
+            data &&
+            data[0].monthlyData.map(({month, revenue})=>{
+                return {
+                    name: month.substring(0,3),
+                    revenue:revenue,
+                  
+
+
+
+                }
+            })
+        )
+    }, [data])
+
 
     return (
 
@@ -203,34 +220,55 @@ const Row1 = () => {
              </ResponsiveContainer>
 
            </DashboardBox>
-           <DashboardBox gridArea='c'>
-
-           <BoxHeader
-              title='Revenue and Expenses'
-              subtitle='Top line represents revenue, bottom line represents expenses'
-              sidText='+4%'
-
+           <DashboardBox gridArea="c">
+        <BoxHeader
+          title="Revenue Month by Month"
+          subtitle="graph representing the revenue month by month"
+          sidText='OK'
+        />
+        <ResponsiveContainer width="100%" height="100%">
+          <BarChart
+            width={500}
+            height={300}
+            data={Revenue}
+            margin={{
+              top: 17,
+              right: 15,
+              left: -5,
+              bottom: 58,
+            }}
+          >
+            <defs>
+              <linearGradient id="colorRevenue" x1="0" y1="0" x2="0" y2="1">
+                <stop
+                  offset="5%"
+                  stopColor={palette.primary[300]}
+                  stopOpacity={0.8}
                 />
-
-             <ResponsiveContainer width={"100%"} height={"100%"} >
-                <BarChart
-                 width={730}
-                 height={259}
-
-                >
-                 <XAxis/>
-                 <YAxis/>
-                 <Legend/>
-                 <Bar dataKey={"pv"} fill='#8884d8'/>
-                 <Bar dataKey={"uv"} fill="#82ca9d" />
-
-
-                </BarChart>
-             </ResponsiveContainer>
-
-
-           </DashboardBox>
-          
+                <stop
+                  offset="95%"
+                  stopColor={palette.primary[300]}
+                  stopOpacity={0}
+                />
+              </linearGradient>
+            </defs>
+            <CartesianGrid vertical={false} stroke={palette.grey[800]} />
+            <XAxis
+              dataKey="name"
+              axisLine={false}
+              tickLine={false}
+              style={{ fontSize: "10px" }}
+            />
+            <YAxis
+              axisLine={false}
+              tickLine={false}
+              style={{ fontSize: "10px" }}
+            />
+            <Tooltip />
+            <Bar dataKey="revenue" fill="url(#colorRevenue)" />
+          </BarChart>
+        </ResponsiveContainer>
+      </DashboardBox>
        
        </>
 
@@ -238,4 +276,4 @@ const Row1 = () => {
 
 }
 
-export default Row1;
+ export default Row1;
