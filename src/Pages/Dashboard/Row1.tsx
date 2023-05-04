@@ -7,6 +7,7 @@ CartesianGrid,
 XAxis,
 YAxis,
 Tooltip,
+Line,
 Area
 
 } from 'recharts';
@@ -125,7 +126,57 @@ const Row1 = () => {
                 </AreaChart>  
              </ResponsiveContainer>
            </DashboardBox>
-           <DashboardBox gridArea='b'></DashboardBox>
+           <DashboardBox gridArea='b'>
+           <BoxHeader
+              title='Revenue and Expenses'
+              subtitle='Top line represents revenue, bottom line represents expenses'
+              sidText='+4%'
+
+                />           
+           <ResponsiveContainer width={"100%"} height={"100%"}>
+                <AreaChart
+                width={500}
+                height={400}
+                data={revenueExpenses}
+                margin={
+                    {
+                        top:15,
+                        right:25,
+                        left:-10,
+                        bottom:60,
+                    }
+                }
+                >
+                    <CartesianGrid  vertical={false} stroke={palette.grey[800]}/>
+                    <XAxis dataKey={"name"}
+                    tickLine={false}
+                    style={{fontSize: "10px"}}
+
+                    />
+                    <YAxis
+                    yAxisId={"left"}
+                    tickLine={false}
+                    axisLine={false}
+                    style={{fontSize: "10px"}} 
+                    />
+                    
+                    <Tooltip/>
+                    <Line type={"monotone"}
+                     dataKey={"revenue"} 
+                     dot={false}
+                     stroke={palette.primary.main} 
+                     fillOpacity={1}
+                     fill='url(#colorRevenue)'/>
+                      <Line type={"monotone"}
+                     dataKey={"expenses"} 
+                     dot={true}
+                     stroke={palette.primary.main} 
+                     fillOpacity={1}
+                     fill='url(#colorExpenses)'/>
+                </AreaChart>  
+             </ResponsiveContainer>
+
+           </DashboardBox>
            <DashboardBox gridArea='c'></DashboardBox>
           
        
