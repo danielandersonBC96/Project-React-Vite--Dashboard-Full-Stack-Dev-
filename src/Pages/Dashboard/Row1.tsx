@@ -10,7 +10,9 @@ Tooltip,
 Line,
 Area,
 Legend,
-LineChart
+LineChart,
+BarChart,
+Bar
 } from 'recharts';
 import{ useMemo } from 'react';
 import {useTheme} from '@mui/material';
@@ -47,7 +49,7 @@ const Row1 = () => {
                     name: month.substring(0,3),
                     revenue:revenue,
                     expenses:expenses,
-                    profit: revenue - expenses , 
+                    profit: (revenue - expenses).toFixed(2) , 
 
 
 
@@ -201,7 +203,33 @@ const Row1 = () => {
              </ResponsiveContainer>
 
            </DashboardBox>
-           <DashboardBox gridArea='c'></DashboardBox>
+           <DashboardBox gridArea='c'>
+
+           <BoxHeader
+              title='Revenue and Expenses'
+              subtitle='Top line represents revenue, bottom line represents expenses'
+              sidText='+4%'
+
+                />
+
+             <ResponsiveContainer width={"100%"} height={"100%"} >
+                <BarChart
+                 width={730}
+                 height={259}
+
+                >
+                 <XAxis/>
+                 <YAxis/>
+                 <Legend/>
+                 <Bar dataKey={"pv"} fill='#8884d8'/>
+                 <Bar dataKey={"uv"} fill="#82ca9d" />
+
+
+                </BarChart>
+             </ResponsiveContainer>
+
+
+           </DashboardBox>
           
        
        </>
