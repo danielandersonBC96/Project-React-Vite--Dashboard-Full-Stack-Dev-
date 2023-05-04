@@ -39,6 +39,23 @@ const Row1 = () => {
         )
     }, [data])
 
+    const  revenueProfit = useMemo(() => {
+        return (
+            data &&
+            data[0].monthlyData.map(({month, revenue, expenses})=>{
+                return {
+                    name: month.substring(0,3),
+                    revenue:revenue,
+                    expenses:expenses,
+                    profit: revenue - expenses , 
+
+
+
+                }
+            })
+        )
+    }, [data])
+
 
     return (
 
@@ -118,7 +135,7 @@ const Row1 = () => {
                      stroke={palette.primary.main} 
                      fillOpacity={1}
                      fill='url(#colorRevenue)'/>
-                      <Area type={"monotone"}
+                     <Area type={"monotone"}
                      dataKey={"expenses"} 
                      dot={true}
                      stroke={palette.primary.main} 
@@ -129,20 +146,20 @@ const Row1 = () => {
            </DashboardBox>
            <DashboardBox gridArea='b'>
            <BoxHeader
-              title='Revenue and Expenses'
+              title='Proft and Revenue'
               subtitle='Top line represents revenue, bottom line represents expenses'
               sidText='+20'
                
                 />           
            <ResponsiveContainer width={"100%"} height={"100%"}>
                 <LineChart
-                data={revenueExpenses}
+                data={revenueProfit}
                 margin={
                     {
                         top:15,
-                        right:25,
+                        right:0,
                         left:-10,
-                        bottom:60,
+                        bottom:55,
                     }
                 }
                 >
