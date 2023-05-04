@@ -8,8 +8,9 @@ XAxis,
 YAxis,
 Tooltip,
 Line,
-Area
-
+Area,
+Legend,
+LineChart
 } from 'recharts';
 import{ useMemo } from 'react';
 import {useTheme} from '@mui/material';
@@ -130,13 +131,11 @@ const Row1 = () => {
            <BoxHeader
               title='Revenue and Expenses'
               subtitle='Top line represents revenue, bottom line represents expenses'
-              sidText='+4%'
-
+              sidText='+20'
+               
                 />           
            <ResponsiveContainer width={"100%"} height={"100%"}>
-                <AreaChart
-                width={500}
-                height={400}
+                <LineChart
                 data={revenueExpenses}
                 margin={
                     {
@@ -161,19 +160,27 @@ const Row1 = () => {
                     />
                     
                     <Tooltip/>
-                    <Line type={"monotone"}
-                     dataKey={"revenue"} 
-                     dot={false}
-                     stroke={palette.primary.main} 
-                     fillOpacity={1}
-                     fill='url(#colorRevenue)'/>
-                      <Line type={"monotone"}
-                     dataKey={"expenses"} 
-                     dot={true}
-                     stroke={palette.primary.main} 
-                     fillOpacity={1}
-                     fill='url(#colorExpenses)'/>
-                </AreaChart>  
+                    <Legend
+                    height={20} wrapperStyle={{
+                     margin: ' 0 0 10px 0 '
+                    }}
+                    />
+                    <Line 
+                    yAxisId={"left"}
+                    type={"monotone"}
+                    dataKey={"profit"}
+                    stroke={palette.tertiary[500]}
+                    
+                    />
+                      <Line 
+                      
+                      yAxisId={"left"}
+                      type={"monotone"}
+                      dataKey={"revenue"}
+                      stroke={palette.primary[500]}
+                      
+                      />
+                </LineChart>  
              </ResponsiveContainer>
 
            </DashboardBox>
