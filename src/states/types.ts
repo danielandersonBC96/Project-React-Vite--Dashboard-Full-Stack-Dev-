@@ -33,3 +33,14 @@ export interface GetKpisResponse {
    monthlyData: Array<Month>;
    dalyData:Array<Day>
 }
+
+export interface GetProductsResponse {
+    id: string;
+    _id: string; 
+    __v: number;
+    price: number;
+    expense:number;
+    transactions: Array<string>;
+    createAt: string;
+    updateAt: string;
+}

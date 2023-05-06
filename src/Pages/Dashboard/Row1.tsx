@@ -62,11 +62,13 @@ const Row1 = () => {
     const Revenue = useMemo(() => {
         return (
             data &&
-            data[0].monthlyData.map(({month, revenue})=>{
+            data[0].monthlyData.map(({month, revenue,expenses})=>{
                 return {
                     name: month.substring(0,3),
                     revenue:revenue,
-                  
+                    expenses:expenses
+
+
 
 
 
@@ -224,7 +226,7 @@ const Row1 = () => {
         <BoxHeader
           title="Revenue Month by Month"
           subtitle="graph representing the revenue month by month"
-          sidText='OK'
+          sidText='3%'
         />
         <ResponsiveContainer width="100%" height="100%">
           <BarChart
@@ -265,7 +267,7 @@ const Row1 = () => {
               style={{ fontSize: "10px" }}
             />
             <Tooltip />
-            <Bar dataKey="revenue" fill="url(#colorRevenue)" />
+            <Bar dataKey="revenue" fill="url(#colorRevenue)" /> 
           </BarChart>
         </ResponsiveContainer>
       </DashboardBox>
