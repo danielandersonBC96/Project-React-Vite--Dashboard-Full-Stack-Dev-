@@ -9,14 +9,14 @@ export const api = createApi ({
     endpoints: ( build) => ({
         getKpis: build.query<Array<GetKpisResponse>, void>({
             query: () => "kpi/kpis",
-            providesTags:["kpis"]
+            providesTags:["kpis"],
 
         }),
         getProducts: build.query<Array<GetProductsResponse>, void>({
             query: () => "product/products" , 
-            providesTags: [ "Products"]
+            providesTags: [ "Products"],
         }),
-
+  
     }),
 })
 
