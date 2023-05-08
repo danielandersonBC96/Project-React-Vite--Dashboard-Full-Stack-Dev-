@@ -267,7 +267,9 @@ const Row1 = () => {
               style={{ fontSize: "10px" }}
             />
             <Tooltip />
-            <Bar dataKey="revenue" fill="url(#colorRevenue)" /> 
+            <Bar dataKey="revenue"
+             stroke={palette.tertiary[500]}
+            /> 
           </BarChart>
         </ResponsiveContainer>
       </DashboardBox>

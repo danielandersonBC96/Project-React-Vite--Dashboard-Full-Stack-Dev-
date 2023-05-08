@@ -19,7 +19,7 @@ const Row2 = ( ) => {
     const { palette } = useTheme();
     const { data: operationalData } = useGetKpisQuery();
     const { data: productData } = useGetProductsQuery();
-    
+
     const operationalExpenses = useMemo(() => {
         return (
           operationalData &&
@@ -42,8 +42,8 @@ const Row2 = ( ) => {
         <DashboardBox gridArea="d">
            <BoxHeader
              title="Operational vs Non-Operational Expenses"
-             sidText="+4%"
-            subtitle='qualquer coisa'
+             sidText="+200%"
+            subtitle='Kpis Operational Expenses and Non-Operational Expenses '
               />
         <ResponsiveContainer width="100%" height="100%">
           <LineChart
