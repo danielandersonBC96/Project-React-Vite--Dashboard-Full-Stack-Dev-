@@ -15,12 +15,11 @@ import {
    Cell, 
    ScatterChart,
    ZAxis,
-   Legend,
    Scatter
 
    } from 'recharts';
    
-import { Box, Typography, fabClasses, useTheme } from "@mui/material";
+import { Box, Typography, useTheme } from "@mui/material";
 import FlexBetween from '@/Components/FlexBetween.';
 const Row2 = ( ) => {
     const { palette } = useTheme();
@@ -51,6 +50,23 @@ const Row2 = ( ) => {
           )
         );
       }, [operationalData]);
+
+      const productExpenseData = useMemo(() => {       
+        return ( 
+          productData &&
+          productData.map(({_id, price, expense})=>{
+            return{
+              id: _id,
+              price:price,
+              expense:expense
+
+
+            }
+
+          })
+
+        );
+      }, []) 
 
     return (
 
@@ -217,9 +233,12 @@ const Row2 = ( ) => {
                      style={{ fontSize:'10px'}}   
                      tickFormatter={(v) => `$ ${v}` }              
                      />
-                     
+                     <ZAxis
+                     type='number'
+                     range={[20]}
+                     />                     
                      <Tooltip formatter={(v) => `$ ${v}`}/>
-                     <Scatter name='a school' data={} fill='#8884dB'/>
+                     <Scatter name='a school' data={productExpenseData} fill={palette.tertiary[500]}/>
                  </ScatterChart>
             </ResponsiveContainer>    
         </DashboardBox>
