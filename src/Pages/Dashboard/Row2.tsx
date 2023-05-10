@@ -20,7 +20,7 @@ import {
 
    } from 'recharts';
    
-import { Box, Typography, useTheme } from "@mui/material";
+import { Box, Typography, fabClasses, useTheme } from "@mui/material";
 import FlexBetween from '@/Components/FlexBetween.';
 const Row2 = ( ) => {
     const { palette } = useTheme();
@@ -180,23 +180,16 @@ const Row2 = ( ) => {
           </Box>
        
       </FlexBetween>
-
-    
-                  
+                 
          </DashboardBox>
-
-         
         <DashboardBox gridArea='f'>
-           <BoxHeader
-             title="Operational vs Non-Operational Expenses"
-             sidText="+200%"
-            subtitle='Kpis Operational Expenses and Non-Operational Expenses '
+        <BoxHeader
+             title="Price vs Expense "
+             sidText="+ 15 %"
+            subtitle='Kpis Operational Price  and Expenses '
               />
-              <ResponsiveContainer
-                  width={'100%'}
-                  height={'100%'}
-                     >
-                 <ScatterChart
+          <ResponsiveContainer width={'100%'} height={'100%'}>
+                <ScatterChart
                   margin={{
                     top: 20,
                     right:20,
@@ -205,15 +198,30 @@ const Row2 = ( ) => {
                   }}
                   >
                     <CartesianGrid/>
-                     <XAxis/>
-                     <YAxis/>
-                     <ZAxis/>
-                     <Tooltip/>
-                     <Legend/>
-                     <Scatter/>
-                     <Scatter/>
+                     <XAxis
+                     
+                     type='number'
+                     dataKey='price'
+                     name='stature'
+                     axisLine={false}
+                     tickLine={false}
+                     style={{ fontSize: '10px'}}
+                     tickFormatter={(v) => `$ ${v}`}
+                     />
+                     <YAxis
+                     type='number'
+                     dataKey='price'
+                     name='stature'
+                     axisLine={ false}
+                     tickLine={false}
+                     style={{ fontSize:'10px'}}   
+                     tickFormatter={(v) => `$ ${v}` }              
+                     />
+                     
+                     <Tooltip formatter={(v) => `$ ${v}`}/>
+                     <Scatter name='a school' data={} fill='#8884dB'/>
                  </ScatterChart>
-              </ResponsiveContainer>
+            </ResponsiveContainer>    
         </DashboardBox>
     </>
 
