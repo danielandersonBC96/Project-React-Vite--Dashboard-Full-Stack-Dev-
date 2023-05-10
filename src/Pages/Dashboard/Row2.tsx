@@ -12,7 +12,11 @@ import {
    LineChart,
    PieChart,
    Pie,
-   Cell
+   Cell, 
+   ScatterChart,
+   ZAxis,
+   Legend,
+   Scatter
 
    } from 'recharts';
    
@@ -182,7 +186,35 @@ const Row2 = ( ) => {
          </DashboardBox>
 
          
-        <DashboardBox gridArea='f'></DashboardBox>
+        <DashboardBox gridArea='f'>
+           <BoxHeader
+             title="Operational vs Non-Operational Expenses"
+             sidText="+200%"
+            subtitle='Kpis Operational Expenses and Non-Operational Expenses '
+              />
+              <ResponsiveContainer
+                  width={'100%'}
+                  height={'100%'}
+                     >
+                 <ScatterChart
+                  margin={{
+                    top: 20,
+                    right:20,
+                    bottom:20,
+                    left: 10,
+                  }}
+                  >
+                    <CartesianGrid/>
+                     <XAxis/>
+                     <YAxis/>
+                     <ZAxis/>
+                     <Tooltip/>
+                     <Legend/>
+                     <Scatter/>
+                     <Scatter/>
+                 </ScatterChart>
+              </ResponsiveContainer>
+        </DashboardBox>
     </>
 
     )
