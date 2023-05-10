@@ -54,19 +54,19 @@ const Row2 = ( ) => {
       const productExpenseData = useMemo(() => {       
         return ( 
           productData &&
-          productData.map(({_id, price, expense})=>{
+          productData.map(({_id,price,expense})=>{
             return{
               id: _id,
               price:price,
-              expense:expense
+              expense:expense,
 
 
-            }
+            };
 
           })
 
         );
-      }, []) 
+      }, [productData]) 
 
     return (
 
@@ -204,41 +204,41 @@ const Row2 = ( ) => {
              sidText="+ 15 %"
             subtitle='Kpis Operational Price  and Expenses '
               />
-          <ResponsiveContainer width={'100%'} height={'100%'}>
+          <ResponsiveContainer width='100%' height='100%'>
                 <ScatterChart
                   margin={{
                     top: 20,
-                    right:20,
-                    bottom:20,
-                    left: 10,
+                    right:25,
+                    bottom:40,
+                    left: -10,
                   }}
                   >
-                    <CartesianGrid/>
+                    <CartesianGrid stroke={palette.grey[800]}/>
                      <XAxis
                      
                      type='number'
                      dataKey='price'
-                     name='stature'
+                     name='price'
                      axisLine={false}
                      tickLine={false}
                      style={{ fontSize: '10px'}}
-                     tickFormatter={(v) => `$ ${v}`}
+                     tickFormatter={(v) => `$${v}`}
                      />
                      <YAxis
                      type='number'
-                     dataKey='price'
-                     name='stature'
+                     dataKey='expense'
+                     name='expense'
                      axisLine={ false}
                      tickLine={false}
                      style={{ fontSize:'10px'}}   
-                     tickFormatter={(v) => `$ ${v}` }              
+                     tickFormatter={(v) => `$${v}` }              
                      />
                      <ZAxis
                      type='number'
                      range={[20]}
                      />                     
-                     <Tooltip formatter={(v) => `$ ${v}`}/>
-                     <Scatter name='a school' data={productExpenseData} fill={palette.tertiary[500]}/>
+                     <Tooltip formatter={(v) => `$${v}`}/>
+                     <Scatter name='Product Expense Ration ' data={productExpenseData} fill={palette.tertiary[500]}/>
                  </ScatterChart>
             </ResponsiveContainer>    
         </DashboardBox>

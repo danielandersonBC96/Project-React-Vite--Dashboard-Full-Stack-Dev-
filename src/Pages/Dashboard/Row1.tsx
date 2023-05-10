@@ -254,7 +254,7 @@ const Row1 = () => {
                 />
               </linearGradient>
             </defs>
-            <CartesianGrid vertical={false} stroke={palette.grey[800]} />
+            <CartesianGrid vertical={false} stroke={ palette .grey[800]} />
             <XAxis
               dataKey="name"
               axisLine={false}
@@ -267,9 +267,8 @@ const Row1 = () => {
               style={{ fontSize: "10px" }}
             />
             <Tooltip />
-            <Bar dataKey="revenue"
-             stroke={palette.tertiary[500]}
-            /> 
+            <Bar dataKey="revenue" fill={palette.tertiary[500]} />
+            
           </BarChart>
         </ResponsiveContainer>
       </DashboardBox>

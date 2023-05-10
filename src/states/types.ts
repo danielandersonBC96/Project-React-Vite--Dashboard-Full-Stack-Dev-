@@ -43,7 +43,7 @@ export interface GetProductsResponse {
      id: string;
      _id: string; 
      __v: number;
-    price: number;
+     price: number;
     expense:number;
     transactions: Array<string>;
     createAt: string;
