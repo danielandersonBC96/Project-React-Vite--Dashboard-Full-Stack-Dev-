@@ -38,7 +38,6 @@ export interface GetKpisResponse {
 }
 
 
-
 export interface GetProductsResponse {
      id: string;
      _id: string; 
@@ -51,6 +50,11 @@ export interface GetProductsResponse {
 }
 
 export interface GetTransactionsReponse{
-
-    
+    id:string; 
+    _id:string;
+    __v:number;
+    buyer:string;
+    amounth:number;
+    createAt:string;
+    update:string;
 }
