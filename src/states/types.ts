@@ -49,3 +49,8 @@ export interface GetProductsResponse {
     createAt: string;
     updateAt: string;
 }
+
+export interface GetTransactionsReponse{
+
+    
+}
