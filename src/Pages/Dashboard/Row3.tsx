@@ -6,7 +6,7 @@ import {
  useGetTransactionsQuery } from '@/states/Api';
 import { Box, useTheme } from '@mui/material';
 import { DataGrid } from '@mui/x-data-grid';
- 
+import { GridCellParams } from '@mui/x-data-grid';
 
 const Row3 = ( ) => {
     const { palette } =  useTheme();
@@ -32,7 +32,7 @@ const Row3 = ( ) => {
             field: 'price',
             headerName: 'Price',
             flex:0.5,
-            renderCell:( params:GridCellParams) => `$${params.value},`
+            renderCell:( params: GridCellParams) => `$${params.value},`
 
 
         },
