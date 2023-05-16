@@ -59,7 +59,20 @@ const Row3 = ( ) => {
                     color: palette.grey['300'],
                     border:'none',
 
+                },
+                "&  MuiDataGrid-Cell":{
+                    borderBottom: ` 1px solid ${palette.grey[800]} !important `,
+
+                },
+                " & .MuitDataGrid-columnHeader":{
+                    borderBottom: ` 1px solid ${palette.grey[800]} !important `,
+
+                },
+                "& .MuiDataGrid-columnSepartor":{
+                    visibility:' hidden ',
                 }
+
+
               }}             
                             
               >
