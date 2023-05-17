@@ -5,39 +5,37 @@ import {
  useGetProductsQuery, 
  useGetTransactionsQuery } from '@/states/Api';
 import { Box, useTheme } from '@mui/material';
-import { DataGrid } from '@mui/x-data-grid';
-import { GridCellParams } from '@mui/x-data-grid';
+import { DataGrid, GridCellParams } from "@mui/x-data-grid";
+
 
 const Row3 = ( ) => {
     const { palette } =  useTheme();
     const{ data: kpiData}= useGetKpisQuery(); 
-    const { data: productData } = useGetProductsQuery();
+    const { data: productData} = useGetProductsQuery();
     const { data: transactionData } = useGetTransactionsQuery();
-    console.log( 'transactionData', transactionData);
 
+ 
     const productColumns = [
-        {
-            field : '_id',
-            headerName: 'id',
-            flex:1,
-        },
-        {
-            field : 'expense',
-            headerName: 'Expense',
-            flex: 0.5,
-            renderCell:( params:GridCellParams) => `$${params.value},`
-
-        },
-        {
-            field: 'price',
-            headerName: 'Price',
-            flex:0.5,
-            renderCell:( params: GridCellParams) => `$${params.value},`
-
-
-        },
-
-    ]
+      {
+        field: "_id",
+        headerName: "id",
+        flex: 1,
+      },
+      {
+        field: "expense",
+        headerName: "Expense",
+        flex: 0.5,
+        renderCell: (params: GridCellParams) => `$${params.value}`,
+      },
+      {
+        field: "price",
+        headerName: "Price",
+        flex: 0.5,
+        renderCell: (params: GridCellParams) => `$${params.value}`,
+      },
+    ];
+  
+   
 
     return (
         <>
@@ -55,31 +53,33 @@ const Row3 = ( ) => {
               p='0 0.5rem'
               height='75%'
               sx={{
-                "& . MuiDataGrid-root":{
-                    color: palette.grey['300'],
-                    border:'none',
-
+                "& .MuiDataGrid-root": {
+                  color: palette.grey[300],
+                  border: "none",
                 },
-                "&  MuiDataGrid-Cell":{
-                    borderBottom: ` 1px solid ${palette.grey[800]} !important `,
-
+                "& .MuiDataGrid-cell": {
+                  borderBottom: `1px solid ${palette.grey[800]} !important`,
                 },
-                " & .MuitDataGrid-columnHeader":{
-                    borderBottom: ` 1px solid ${palette.grey[800]} !important `,
-
+                "& .MuiDataGrid-columnHeaders": {
+                  borderBottom: `1px solid ${palette.grey[800]} !important`,
                 },
-                "& .MuiDataGrid-columnSepartor":{
-                    visibility:' hidden ',
-                }
-
-
-              }}             
+                "& .MuiDataGrid-columnSeparator": {
+                  visibility: "hidden",
+                },
+              }}
                             
               >
-                <DataGrid
-                rows={productData || [ ]}
-                columns={productColumns}
-                />
+                 <DataGrid
+              columnHeaderHeight={25}
+              rowHeight={35}
+              hideFooter={true} columns={ productColumns } 
+              rows={
+                productData || []
+              }
+            
+              getRowId={row => row._id}
+          />
+  
               </Box>
 
              </DashboardBox>
