@@ -1,11 +1,13 @@
 import BoxHeader from '@/Components/BoxHeader';
 import DashboardBox from '@/Components/DashboardBox';
+import FlexBetween from '@/Components/FlexBetween.';
 import {
  useGetKpisQuery, 
  useGetProductsQuery, 
  useGetTransactionsQuery } from '@/states/Api';
-import { Box, useTheme } from '@mui/material';
+import { Box, Typography, useTheme } from '@mui/material';
 import { DataGrid, GridCellParams } from "@mui/x-data-grid";
+import { Cell, Pie, PieChart } from 'recharts';
 
 
 const Row3 = ( ) => {
@@ -15,8 +17,27 @@ const Row3 = ( ) => {
     const { data : transactionData } = useGetTransactionsQuery();
     console.log('transaction:',transactionData)
 
- 
-    
+    const pieData = [
+
+      { name: "Group A" , value:500},
+      { name: 'Group B ' , value:400},
+
+  ]
+  const pieSupplies = [
+
+    { name: "Group A" , value:500},
+    { name: 'Group B ' , value:200},
+
+]
+const pieService = [
+
+  { name: "Group A" , value:500},
+  { name: 'Group B ' , value:100},
+
+]
+
+
+  const pieColors =  [palette.primary[800], palette.primary[300]]
     
 
 
@@ -149,8 +170,188 @@ const Row3 = ( ) => {
               </Box>
 
              </DashboardBox>
-             <DashboardBox gridArea='i'></DashboardBox>
-             <DashboardBox gridArea= 'j'></DashboardBox>
+             <DashboardBox gridArea='i'>
+
+             <BoxHeader
+             title="Expense Brakdonw By Category "
+             sidText="+14%"
+            subtitle='Kpis   "Expense Brakdonw By Category     '
+              />
+           <FlexBetween mt="0.5rem" gap="0.5rem" p="0 1rem" textAlign="center">
+            <Box>
+           <PieChart width={110} height={100} 
+              margin={{
+                top:0,
+                right:-10,
+                left:10,
+                bottom:0,
+              }}
+             >
+        <Pie
+          data={ pieData}
+          innerRadius={18}
+          outerRadius={30}
+          fill='#8884d8'
+          paddingAngle={5}
+          dataKey="value"
+        >
+            {pieData.map(( entry, index)=> (
+
+                <Cell
+                key={`cell -${index}`}
+                fill={pieColors[index % pieColors.length]}
+                
+                />
+
+            ))}
+    
+        </Pie>
+        <Pie
+          data={pieSupplies}
+          cx={420}
+          cy={200}
+          startAngle={180}
+          endAngle={0}
+          innerRadius={60}
+          outerRadius={80}
+          fill="#8884d8"
+          paddingAngle={5}
+          dataKey="value"
+        >
+         
+        </Pie>
+      
+      </PieChart>   
+      <Typography>
+        Salaries
+      </Typography>
+      </Box> 
+      <Box>
+      <PieChart width={110} height={100} 
+              margin={{
+                top:0,
+                right:-10,
+                left:10,
+                bottom:0,
+              }}
+             >
+        <Pie
+          data={ pieSupplies}
+          innerRadius={18}
+          outerRadius={30}
+          fill='#8884d8'
+          paddingAngle={5}
+          dataKey="value"
+        >
+            {pieSupplies.map(( entry, index)=> (
+
+                <Cell
+                key={`cell -${index}`}
+                fill={pieColors[index % pieColors.length]}
+                
+                />
+
+            ))}
+    
+        </Pie>
+        <Pie
+          data={pieSupplies}
+          cx={420}
+          cy={200}
+          startAngle={180}
+          endAngle={0}
+          innerRadius={60}
+          outerRadius={80}
+          fill="#8884d8"
+          paddingAngle={5}
+          dataKey="value"
+        >
+         
+        </Pie>
+      
+      </PieChart>   
+     
+      <Typography >
+          supplies
+        </Typography> 
+      </Box>
+      <Box>
+      <PieChart width={110} height={100} 
+              margin={{
+                top:0,
+                right:-10,
+                left:10,
+                bottom:0,
+              }}
+             >
+        <Pie
+          data={ pieService}
+          innerRadius={18}
+          outerRadius={30}
+          fill='#8884d8'
+          paddingAngle={5}
+          dataKey="value"
+        >
+            {pieService.map(( entry, index)=> (
+
+                <Cell
+                key={`cell -${index}`}
+                fill={pieColors[index % pieColors.length]}
+                
+                />
+
+            ))}
+    
+        </Pie>
+        <Pie
+          data={pieService}
+          cx={420}
+          cy={200}
+          startAngle={180}
+          endAngle={0}
+          innerRadius={60}
+          outerRadius={80}
+          fill="#8884d8"
+          paddingAngle={5}
+          dataKey="value"
+        >
+         
+        </Pie>
+      
+      </PieChart>   
+     
+      <Typography >
+         service
+        </Typography> 
+      </Box>
+
+      
+        </FlexBetween>
+              
+             </DashboardBox>
+             <DashboardBox gridArea= 'j'>
+
+             <BoxHeader
+             title="Expense Brakdonw By Category "
+             sidText="+14%"
+            subtitle='Kpis   "Expense Brakdonw By Category     '
+              />
+
+        <Box
+          height="15px"
+          margin="1.25rem 1rem 0.4rem 1rem"
+          bgcolor={palette.primary[800]}
+          borderRadius="1rem"
+        >
+          <Box
+            height="15px"
+            bgcolor={palette.primary[600]}
+            borderRadius="1rem"
+            width="40%"
+          ></Box>
+        </Box>
+      
+             </DashboardBox>
                
         </>
     )
