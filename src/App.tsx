@@ -6,6 +6,7 @@ import { Box } from "@mui/material"
 import { BrowserRouter, Route , Routes } from 'react-router-dom';
 import Navbar from '@/Pages/navbar'
 import Dashboard from './Pages/Dashboard';
+import Predications from './Pages/predictions';
 
 function App() {
 
@@ -23,7 +24,7 @@ function App() {
           <Navbar/>
             <Routes >
                <Route path='/' element={ <Dashboard/>}/>
-               <Route path='/predictions' element={ <div> Prediction Page</div>}/>
+               <Route path='/predictions' element={ <Predications/>}/>
             </Routes>
          </Box>
     </ThemeProvider>

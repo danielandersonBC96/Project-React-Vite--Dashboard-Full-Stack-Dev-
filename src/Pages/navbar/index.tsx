@@ -28,10 +28,10 @@ const Navbar = ( props: Props) => {
                     }}
                     />
                     <Typography 
-                    variant='h4'
-                    fontSize={'16px'}
+                    variant='h5'
+                    fontSize={'13px'}
                     >
-                       <h1> Dashboard Finanseer </h1>
+                       Dashboard Finanseer 
                     </Typography>
                      
                      
